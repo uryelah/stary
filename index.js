@@ -49,10 +49,11 @@ module.exports = (() => {
 
       return `${str}</div>`;
     },
-    init: () => {
+    init: (callback = () => null) => {
       [...document.getElementsByClassName('input')].forEach(inp => {
         inp.addEventListener('click', e => {
           rate = Number.parseInt(e.originalTarget.dataset.rate, 10);
+          callback(rate);
           update();
         });
       });

@@ -39,3 +39,32 @@ let rate = stary.getRate();
 ```
 
 -----
+
+### Using callbacks and getting updated rate real time in React
+
+It's possible to use a callback when calling the init function.
+It will be called everytime a star is clicked.
+
+in the example below the callback is used to keep track of the current rating without having to call getRate multiple times.
+
+```javascript
+import stary from 'stary';
+
+function MyComponent() {
+  // set the initial rate state with the useState hook
+  const [rate, setRate] = useState(stary.getRate());
+
+  // initialize the star ratings with setRate as the callback
+  useEffect(() => {
+    document.getElementById('stars').innerHTML = stary.show({ color: '#ffc600' });
+    stary.init(setRate);
+  }, []);
+
+  return (
+    <div>    
+      <p>Current rating: {rate}</p>
+      <div id="stars"></div>
+      ...
+```
+
+-----
