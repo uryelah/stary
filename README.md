@@ -18,6 +18,7 @@
 | color  |                 '#000000' | color of each star, any valid CSS color  |
 | margin |                 2         | side margin of each star in pixels |
 | hover  |                 true      | highlight stars on hover |
+| icon   |                 null      | It can be a single emoji or an array of emojis to use instead of the default stars
 
 -----
 
@@ -36,6 +37,18 @@ stary.init();
 
 // get current rate
 let rate = stary.getRate();
+```
+
+### Using custom icons
+
+```javascript
+// The below will generate 5 emojis
+stary.show({ number: 5, size: 20, icon: '💩' });
+
+// The below will show the emojis in the array order 
+stary.show({ number: 5, size: 20, icon: ['☹️', '🙁', '😐', '🙂', '😃'] });
+
+
 ```
 
 -----
